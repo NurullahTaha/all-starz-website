@@ -1,0 +1,25 @@
+{
+  "name": "all-starz-fast-foods-website",
+  "version": "1.0.0",
+  "description": "Professional restaurant website for All Starz Fast Foods with modern design and interactive features",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server .",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "restaurant",
+    "fast-food",
+    "website",
+    "static",
+    "responsive"
+  ],
+  "author": "All Starz Fast Foods",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NurullahTaha/all-starz-website.git"
+  },
+  "homepage": "https://github.com/NurullahTaha/all-starz-website#readme"
+}
