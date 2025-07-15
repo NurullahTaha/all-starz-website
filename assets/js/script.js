@@ -1,6 +1,12 @@
 // Simple mobile menu toggle
 let mobileMenuOpen = false;
 
+// Global test function to verify JavaScript is working
+window.testFunction = function() {
+    console.log('JavaScript is working!');
+    alert('JavaScript is working!');
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const pages = document.querySelectorAll('.page');
@@ -19,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
             targetPage.classList.add('active');
         }
         
-        navLinks.forEach(navLink => {
+        // Remove active class from all nav links
+        document.querySelectorAll('.nav-link').forEach(navLink => {
             navLink.classList.remove('active');
         });
         const activeNavLink = document.querySelector(`a[href="#${pageId}"]`);
@@ -409,7 +416,7 @@ window.initMap = function() {
     });
 }
 
-});
+}); // End of DOMContentLoaded
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(e) {
