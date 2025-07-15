@@ -1741,6 +1741,13 @@ body {
     50% { transform: scale(1.05); }
 }
 
+/* Global Image Optimization */
+img {
+    image-rendering: optimizeSpeed;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
 /* Enhanced Mobile Performance & Layout Fixes */
 @media (max-width: 480px) {
     /* Optimize body for mobile performance */
@@ -1752,11 +1759,18 @@ body {
         backface-visibility: hidden;
     }
     
-    /* Fix hero visibility - ensure full visibility on mobile */
+    /* Optimize all images on mobile */
+    img {
+        image-rendering: optimizeSpeed;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Fix hero visibility - reduce excessive height */
     .hero {
-        min-height: 75vh;
-        padding: 100px 15px 60px;
-        margin-top: 0;
+        min-height: 50vh;
+        padding: 80px 15px 40px;
+        margin-top: 60px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1782,29 +1796,31 @@ body {
         white-space: nowrap;
     }
     
-    /* Fix podium vertical stretching */
+    /* Fix podium positioning and centering */
     .podium-wrapper {
         width: 100%;
-        padding: 0 15px;
-        margin: 50px 0;
+        padding: 0;
+        margin: 40px auto;
         display: flex;
         justify-content: center;
+        overflow: hidden;
     }
     
     .podium {
         width: 100%;
-        max-width: 350px;
-        height: 200px;
+        max-width: 300px;
+        height: 180px;
         transform: none;
         display: flex;
         align-items: flex-end;
-        justify-content: center;
-        gap: 15px;
+        justify-content: space-evenly;
+        gap: 10px;
+        margin: 0 auto;
     }
     
     .step {
-        flex: 0 0 auto;
-        width: 90px;
+        flex: 1;
+        max-width: 80px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1812,23 +1828,25 @@ body {
     }
     
     .step.first {
-        height: 180px;
+        height: 140px;
     }
     
     .step.second {
-        height: 150px;
-    }
-    
-    .step.third {
         height: 120px;
     }
     
+    .step.third {
+        height: 100px;
+    }
+    
     .podium-img {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 8px;
         margin-bottom: 8px;
+        image-rendering: optimizeSpeed;
+        transform: translateZ(0);
     }
     
     .step span {

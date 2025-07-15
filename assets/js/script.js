@@ -1,43 +1,5 @@
-// Mobile Menu Functions - Define globally first
-function toggleMobileMenu() {
-    console.log('Toggle mobile menu called'); // Debug log
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    console.log('Hamburger:', hamburger); // Debug log
-    console.log('Mobile menu:', mobileMenu); // Debug log
-    
-    if (hamburger && mobileMenu) {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        
-        console.log('Menu toggled, active:', mobileMenu.classList.contains('active')); // Debug log
-        
-        // Prevent body scroll when menu is open
-        if (mobileMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    } else {
-        console.error('Hamburger or mobile menu not found!');
-    }
-}
-
-function closeMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (hamburger && mobileMenu) {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
-
-// Make functions available globally
-window.toggleMobileMenu = toggleMobileMenu;
-window.closeMobileMenu = closeMobileMenu;
+// Simple mobile menu toggle
+let mobileMenuOpen = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -105,13 +67,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add event listener for hamburger menu as backup
-    const hamburger = document.querySelector('.hamburger');
-    if (hamburger) {
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleMobileMenu();
+    // Mobile menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+            mobileMenuOpen = !mobileMenuOpen;
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking links
+        const mobileNavLinks = mobileMenu.querySelectorAll('.nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuOpen = false;
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
     }
 
@@ -424,32 +400,27 @@ window.initMap = function() {
     });
 }
 
-// Event listeners for mobile menu
+});
+
+// Close mobile menu when clicking outside
 document.addEventListener('click', function(e) {
+    const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
     
-    if (mobileMenu && mobileMenu.classList.contains('active')) {
-        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            closeMobileMenu();
-        }
+    if (mobileMenuOpen && !hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenuOpen = false;
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
     }
 });
 
 // Close mobile menu on window resize
 window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-        closeMobileMenu();
+    if (window.innerWidth > 768 && mobileMenuOpen) {
+        mobileMenuOpen = false;
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.body.style.overflow = '';
     }
-});
-
-// Performance optimization: Debounced scroll handler
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-    if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-    }
-    scrollTimeout = setTimeout(function() {
-        // Add any scroll-based functionality here if needed
-    }, 16); // ~60fps
 });
