@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    navLinks.forEach(link => {
+    // Handle desktop navigation (exclude mobile menu links)
+    const desktopNavLinks = document.querySelectorAll('.nav-left .nav-link, .nav-right .nav-link');
+    desktopNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const pageId = this.getAttribute('href').substring(1);
@@ -79,10 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
         });
         
-        // Close menu when clicking links
+        // Handle mobile menu navigation and closing
         const mobileNavLinks = mobileMenu.querySelectorAll('.nav-link');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get page ID and navigate
+                const pageId = this.getAttribute('href').substring(1);
+                window.showPage(pageId);
+                
+                // Close mobile menu
                 mobileMenuOpen = false;
                 hamburger.classList.remove('active');
                 mobileMenu.classList.remove('active');
