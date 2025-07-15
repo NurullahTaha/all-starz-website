@@ -1,78 +1,78 @@
 # All Starz Fast Foods Website
 
-A complete restaurant website for All Starz Fast Foods featuring a modern design with bright yellow/gold background, orange accents, and interactive functionality.
+A complete restaurant website for All Starz Fast Foods featuring modern design, EmailJS contact forms, Google Maps integration, and responsive layout.
 
 ## Features
 
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Interactive Navigation**: Single-page application with smooth transitions
-- **Menu Categories**: Interactive menu with categorized items and icons
-- **Customer Reviews**: Animated review cards with star ratings
-- **Contact Form**: Working contact form with validation
-- **Google Maps Integration**: Interactive map showing restaurant location
-- **Modern UI**: Clean design with hover effects and animations
+- **Modern Hero Section**: ALL STARZ and LOVE AND SAUCE branding with layered text shadows
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Interactive Menu**: Categorized menu with Court Specials, Burgers, Bowls, Chips, Sides, and Desserts
+- **Customer Reviews**: Animated scrolling review cards with 5-star ratings
+- **EmailJS Contact Form**: Working contact form that sends emails directly
+- **Google Maps Integration**: Interactive map with exact address geocoding
+- **Performance Optimized**: Removed CPU-intensive animations per user feedback
+- **Custom Favicon**: Uses actual All Starz logo as website icon
 
 ## Pages Included
 
-1. **Home**: Hero section, menu preview, and customer reviews
-2. **About**: "Our Journey" section with chef information
-3. **Menu**: Categorized menu items with detailed descriptions and prices
-4. **Location**: Address information, hours, map, and contact form
+1. **Home**: Hero section with brand messaging, menu preview, and customer reviews
+2. **About Us**: "Our Journey" section with chef photos and restaurant story
+3. **Menu**: Complete categorized menu with prices and descriptions
+4. **Location**: Address, hours, interactive map, and contact form
 
-## Setup Instructions
+## Technical Features
 
-1. Open `index.html` in a web browser to view the website
-2. For Google Maps functionality, replace `YOUR_API_KEY` in the HTML file with a valid Google Maps API key
-3. All files should be in the same directory for proper functionality
+- **EmailJS Integration**: Contact form sends emails to predetermined address
+- **Google Maps API**: Shows exact restaurant location with geocoding
+- **Single Page Application**: Smooth JavaScript-powered navigation
+- **CSS Custom Properties**: Easy color and styling customization
+- **Optimized Images**: Favicon files in multiple sizes for all devices
 
 ## File Structure
 
 ```
 /Website/
-├── index.html          # Main HTML file with all pages
-├── styles.css          # Complete stylesheet with responsive design
-├── script.js           # JavaScript for interactivity and Google Maps
-└── README.md           # This file
+├── index.html                                    # Main HTML file
+├── styles.css                                   # Complete stylesheet
+├── script.js                                    # JavaScript functionality
+├── All_Starz_Fast_Foods_Logo_Transparent_4K.png # Main logo
+├── favicon-16x16.png                           # Small favicon
+├── favicon-32x32.png                           # Standard favicon
+├── apple-touch-icon.png                        # iOS app icon
+├── [menu item images]                          # Food photos
+└── README.md                                   # This documentation
 ```
 
-## Design Specifications
+## Setup Instructions
 
-- **Colors**: 
-  - Background: #F4D03F (bright yellow/gold)
-  - Accents: #E67E22 (orange)
-  - Text: #8B4513 (dark brown)
-- **Typography**: Inter font family, sans-serif
-- **Logo**: Orange star (★) with "ALL★STARZ FAST FOODS"
+1. **Basic Setup**: Open `index.html` in a web browser
+2. **EmailJS Setup**: Replace placeholder credentials in `script.js` with your EmailJS account details
+3. **Google Maps**: API key is already configured for the restaurant location
+4. **GitHub Pages**: Enable Pages in repository settings for free hosting
 
-## Customization
+## Live Website
 
-To customize the website:
+Once deployed to GitHub Pages, the website will be available at:
+`https://nurullahtaha.github.io/all-starz-website`
 
-1. **Colors**: Update color variables in `styles.css`
-2. **Content**: Edit text content in `index.html`
-3. **Menu Items**: Modify menu sections in the HTML
-4. **Location**: Update address and coordinates in `script.js`
-5. **Images**: Replace placeholder backgrounds with actual food images
+## Branding & Design
 
-## Google Maps Setup
+- **Colors**: Custom brand colors matching the All Starz logo
+- **Typography**: Poppins and Roboto fonts for modern appearance  
+- **Hero Text Effects**: Layered shadows in yellow, orange, and red
+- **Performance**: Animations optimized to prevent high CPU usage
 
-To enable the interactive map:
+## Restaurant Information
 
-1. Get a Google Maps API key from Google Cloud Console
-2. Replace `YOUR_API_KEY` in the script tag with your actual API key
-3. Ensure the API key has Maps JavaScript API enabled
+- **Location**: 358A Railway Parade, Beckenham WA 6107
+- **Hours**: 
+  - Monday-Friday: 2:00 PM - 10:00 PM
+  - Saturday-Sunday: 2:00 PM - 11:00 PM
+- **Social**: Instagram @all_starz_fastfoodz
 
-## Browser Compatibility
+## Development Notes
 
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-- Mobile browsers
-
-## Notes
-
-- The website uses a single HTML file with JavaScript-powered navigation
-- All styling is contained in one CSS file for easy maintenance
-- The design follows the exact specifications from the provided requirements
-- Mobile responsiveness is built-in with appropriate breakpoints
+- Built with modern web standards and best practices
+- Fully responsive design with mobile-first approach
+- Optimized for performance and accessibility
+- Clean, maintainable code structure
