@@ -61,28 +61,38 @@ function stopSlideshow() {
 }
 
 // Menu category switching
-function setupMenuCategories() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const menuSections = document.querySelectorAll('.menu-section');
+    
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            
+            // Remove active class from all buttons
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
             
             // Hide all menu sections
-            const menuSections = document.querySelectorAll('.menu-section');
             menuSections.forEach(section => section.classList.remove('active'));
-            
-            // Show target section
-            const targetSection = document.getElementById(category);
-            if (targetSection) {
-                targetSection.classList.add('active');
+            // Show selected category section
+            const activeSection = document.getElementById(category);
+            if (activeSection) {
+                activeSection.classList.add('active');
             }
-            
-            // Update button active states
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
         });
     });
-}
+    
+    // Set default active category
+    const defaultCategory = document.querySelector('.category-btn.active');
+    if (defaultCategory) {
+        const defaultSection = document.getElementById(defaultCategory.dataset.category);
+        if (defaultSection) {
+            defaultSection.classList.add('active');
+        }
+    }
+});
 
 // Enhanced smooth scrolling for navigation
 function setupSmoothNavigation() {
@@ -273,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSmoothNavigation();
     
     // Setup menu categories
-    setupMenuCategories();
+    // The setupMenuCategories function is now handled by the new DOMContentLoaded listener
     
     // Setup hero button
     const ctaButtons = document.querySelectorAll('.cta-button');

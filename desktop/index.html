@@ -186,42 +186,79 @@
             <div class="section">
                 <div class="container">
                     <div class="menu-categories">
-                        <button class="category-btn active" data-category="court-specials">Court Specials</button>
-                        <button class="category-btn" data-category="burgers">Burgers</button>
-                        <button class="category-btn" data-category="sides">Sides</button>
-                        <button class="category-btn" data-category="desserts">Desserts</button>
+                        <button class="category-btn active" data-category="court-specials">
+                            <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Court Specials
+                        </button>
+                        <button class="category-btn" data-category="burgers">
+                            <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3c.132 0 .263 0 .393 0C17.748 3.224 22 7.582 22 13c0 5.523-4.477 10-10 10S2 18.523 2 13c0-5.418 4.252-9.776 9.607-10C11.737 3 11.868 3 12 3zm0 2c-.132 0-.263 0-.393 0C7.252 5.224 4 8.582 4 13c0 4.418 3.582 8 8 8s8-3.582 8-8c0-4.418-3.252-7.776-7.607-8C12.263 5 12.132 5 12 5zM8 12h8v2H8v-2zm2-3h4v2h-4V9z"/>
+                            </svg>
+                            Burgers
+                        </button>
+                        <button class="category-btn" data-category="bowls">
+                            <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M2 12C2 17.52 6.48 22 12 22s10-4.48 10-10c0-1.19-.22-2.32-.6-3.38L20.4 8.2C20.78 9.3 21 10.43 21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c.57 0 1.12.05 1.66.15l.34-1.32C13.36 2.05 12.69 2 12 2 6.48 2 2 6.48 2 12zm17-7l-2 8h-2l2-8h2z"/>
+                            </svg>
+                            Pick'em Bowls
+                        </button>
+                        <button class="category-btn" data-category="chips">
+                            <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16.84 2.07C16.93 2.04 17.04 2 17.14 2c.85 0 1.55.7 1.55 1.55v.12c-.03.89-.93 1.55-1.84 1.55-.91 0-1.81-.66-1.84-1.55v-.12c0-.24.05-.47.13-.69L12 7.5 8.86 2.86c.08.22.13.45.13.69v.12c-.03.89-.93 1.55-1.84 1.55-.91 0-1.81-.66-1.84-1.55v-.12C5.31 2.7 6.01 2 6.86 2c.1 0 .21.04.3.07L12 9.5l4.84-7.43zM12 11l-8 13h16l-8-13z"/>
+                            </svg>
+                            BYO Chips
+                        </button>
+                        <button class="category-btn" data-category="sides">
+                            <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+                            </svg>
+                            Sides
+                        </button>
+                        <button class="category-btn" data-category="desserts">
+                            <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C9.24 2 7 4.24 7 7v3c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V7c0-2.76-2.24-5-5-5zm3 8H9V7c0-1.66 1.34-3 3-3s3 1.34 3 3v3zm-3 3c-1.1 0-2 .9-2 2v5c0 1.1.9 2 2 2s2-.9 2-2v-5c0-1.1-.9-2-2-2z"/>
+                            </svg>
+                            Desserts
+                        </button>
                     </div>
+
                     <div class="menu-content">
-                        <div id="court-specials" class="menu-section active">
+                        <div class="menu-section active" id="court-specials">
                             <div class="menu-item">
+                                <img src="../assets/images/rasing faarah.jpg" alt="Raising Farah" class="menu-item-image" loading="lazy">
                                 <div class="item-info">
                                     <h3>Raising Farah</h3>
-                                    <p>Our signature specialty burger with premium beef patty, special sauce, fresh lettuce, tomato, and cheese</p>
+                                    <p>Seasoned chips, fried chicken tenders, toasted bun and cup of BRR sauce</p>
                                 </div>
-                                <div class="item-price">$19</div>
+                                <div class="item-price">$25</div>
                             </div>
                             <div class="menu-item">
+                                <img src="../assets/images/Kriss Kross.jpg" alt="Kriss Kross" class="menu-item-image" loading="lazy">
                                 <div class="item-info">
-                                    <h3>Big T Special</h3>
-                                    <p>Double beef patty with bacon, cheese, caramelized onions, and our famous BBQ sauce</p>
+                                    <h3>Kriss Kross</h3>
+                                    <p>Croissant bun, smashed beef patty, melted cheese, beef rashers, caramelized onions, pickles and BBQ sauce</p>
                                 </div>
-                                <div class="item-price">$22</div>
+                                <div class="item-price">$18</div>
                             </div>
                             <div class="menu-item">
+                                <img src="../assets/images/Big Bay.jpg" alt="Big Bay" class="menu-item-image" loading="lazy">
                                 <div class="item-info">
-                                    <h3>Nagma Deluxe</h3>
-                                    <p>Gourmet burger with premium ingredients, nacho cheese, and salsa on a brioche bun</p>
+                                    <h3>Big Bay</h3>
+                                    <p>Croissant bun, smashed patty, lettuce, tomato, turkey bacon and Swiss cheese</p>
                                 </div>
-                                <div class="item-price">$24</div>
+                                <div class="item-price">$20</div>
                             </div>
                         </div>
-                        <div id="burgers" class="menu-section">
+
+                        <div class="menu-section" id="burgers">
                             <div class="burger-section-header">
                                 <h4>Beef Burger Lineup</h4>
                             </div>
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <h3>Warras</h3>
+                                    <h3>Warga</h3>
                                     <p>Beef patty topped with melted cheese, onion, lettuce and tomato</p>
                                 </div>
                                 <div class="item-price">$13</div>
@@ -301,50 +338,92 @@
                                 <div class="item-price">$17</div>
                             </div>
                         </div>
-                        <div id="sides" class="menu-section">
+
+                        <div class="menu-section" id="bowls">
                             <div class="menu-item">
+                                <img src="../assets/images/Pick'em Bowls.jpg" alt="Pick'em Bowls" class="menu-item-image" loading="lazy">
                                 <div class="item-info">
-                                    <h3>Loaded Fries</h3>
-                                    <p>Crispy fries topped with cheese, bacon bits, and our special sauce</p>
+                                    <h3>Pick'em Bowls</h3>
+                                    <p><strong>Meat Options:</strong> Grilled Chicken Mince, Grilled Chicken Tender, Fried Chicken Tender, Smashed Beef Patty</p>
+                                    <p><strong>Fillings:</strong> Regular Chips, Sweet Potato Chips, Waffle Fries, Salad Mix</p>
+                                    <p><strong>Sauces:</strong> Big BRRR Sauce, Mustard, Sweet Chilli, Garlic</p>
                                 </div>
-                                <div class="item-price">$8</div>
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-info">
-                                    <h3>Onion Rings</h3>
-                                    <p>Golden crispy onion rings with our signature dipping sauce</p>
-                                </div>
-                                <div class="item-price">$6</div>
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-info">
-                                    <h3>Chicken Wings</h3>
-                                    <p>Spicy buffalo wings served with ranch dressing</p>
-                                </div>
-                                <div class="item-price">$12</div>
+                                <div class="item-price">$25</div>
                             </div>
                         </div>
-                        <div id="desserts" class="menu-section">
+
+                        <div class="menu-section" id="chips">
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <h3>Chocolate Milkshake</h3>
-                                    <p>Rich and creamy chocolate milkshake topped with whipped cream</p>
+                                    <h3>BYO Chips</h3>
+                                    <p>Bring your own chips, and let us decorate it with any meat, salad, and sauces of your choice!</p>
+                                </div>
+                                <div class="item-price">$10</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-section" id="sides">
+                            <div class="menu-item">
+                                <img src="../assets/images/Chips.jpg" alt="Chips" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Chips</h3>
+                                    <p>Small / Large / Family / Chili Cheese Fries</p>
+                                </div>
+                                <div class="item-price">$5 / $7 / $9 / $10</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Regular Fries</h3>
+                                    <p>Golden crispy fries seasoned with our special blend</p>
                                 </div>
                                 <div class="item-price">$5</div>
                             </div>
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <h3>Apple Pie</h3>
-                                    <p>Warm apple pie with vanilla ice cream</p>
+                                    <h3>Sweet Potato Fries</h3>
+                                    <p>Crispy sweet potato fries with a hint of cinnamon</p>
                                 </div>
                                 <div class="item-price">$7</div>
                             </div>
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <h3>Cookies & Cream Shake</h3>
-                                    <p>Vanilla milkshake blended with chocolate cookies</p>
+                                    <h3>Onion Rings</h3>
+                                    <p>Beer-battered onion rings served with ranch dipping sauce</p>
                                 </div>
-                                <div class="item-price">$5</div>
+                                <div class="item-price">$6</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Loaded Nachos</h3>
+                                    <p>Tortilla chips topped with cheese, jalapeños, sour cream, and guacamole</p>
+                                </div>
+                                <div class="item-price">$12</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Mozzarella Sticks</h3>
+                                    <p>Golden fried mozzarella sticks with marinara dipping sauce</p>
+                                </div>
+                                <div class="item-price">$8</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-section" id="desserts">
+                            <div class="menu-item">
+                                <img src="../assets/images/Naima Nono.jpg" alt="Naima Nono" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Naima Nono</h3>
+                                    <p>Butter toasted croissant filled with chocolate spread and creamy vanilla ice cream sprinkled with chunks of white chocolate</p>
+                                </div>
+                                <div class="item-price">$13</div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="../assets/images/Halimah Haah.jpg" alt="Halimah Haah" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Halimah Haah</h3>
+                                    <p>Butter toasted croissant filled with chocolate spread and creamy chocolate ice cream sprinkled with chunks of almond chocolate</p>
+                                </div>
+                                <div class="item-price">$13</div>
                             </div>
                         </div>
                     </div>

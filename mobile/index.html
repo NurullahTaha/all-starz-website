@@ -151,124 +151,235 @@
                 <div class="container">
                     <h2 class="section-title">Menu</h2>
                     
-                    <div class="mobile-menu-tabs">
-                        <button class="tab-btn active" data-category="specials">Specials</button>
-                        <button class="tab-btn" data-category="burgers">Burgers</button>
-                        <button class="tab-btn" data-category="sides">Sides</button>
-                        <button class="tab-btn" data-category="drinks">Drinks</button>
+                    <div class="menu-categories">
+                        <div class="mobile-menu-tabs">
+                            <button class="tab-btn active" data-category="court-specials">
+                                <span class="tab-icon">⭐</span>
+                                <span class="tab-text">Court Specials</span>
+                            </button>
+                            <button class="tab-btn" data-category="burgers">
+                                <span class="tab-icon">🍔</span>
+                                <span class="tab-text">Burgers</span>
+                            </button>
+                            <button class="tab-btn" data-category="bowls">
+                                <span class="tab-icon">🥙</span>
+                                <span class="tab-text">Pick'em Bowls</span>
+                            </button>
+                            <button class="tab-btn" data-category="chips">
+                                <span class="tab-icon">🍟</span>
+                                <span class="tab-text">BYO Chips</span>
+                            </button>
+                            <button class="tab-btn" data-category="sides">
+                                <span class="tab-icon">🥗</span>
+                                <span class="tab-text">Sides</span>
+                            </button>
+                            <button class="tab-btn" data-category="desserts">
+                                <span class="tab-icon">🍰</span>
+                                <span class="tab-text">Desserts</span>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="mobile-menu-content">
-                        <div id="specials" class="menu-section active">
+                    <div class="menu-content">
+                        <div class="menu-section active" id="court-specials">
                             <div class="menu-item">
-                                <div class="item-header">
+                                <img src="../assets/images/rasing faarah.jpg" alt="Raising Farah" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
                                     <h3>Raising Farah</h3>
-                                    <span class="price">$19</span>
+                                    <p>Seasoned chips, fried chicken tenders, toasted bun and cup of BRR sauce</p>
                                 </div>
-                                <p>Our signature specialty burger with premium beef patty, special sauce, fresh lettuce, tomato, and cheese</p>
+                                <div class="item-price">$25</div>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Big T Special</h3>
-                                    <span class="price">$22</span>
+                                <img src="../assets/images/Kriss Kross.jpg" alt="Kriss Kross" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Kriss Kross</h3>
+                                    <p>Croissant bun, smashed beef patty, melted cheese, beef rashers, caramelized onions, pickles and BBQ sauce</p>
                                 </div>
-                                <p>Double beef patty with bacon, cheese, caramelized onions, and our famous BBQ sauce</p>
+                                <div class="item-price">$18</div>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Nagma Deluxe</h3>
-                                    <span class="price">$24</span>
+                                <img src="../assets/images/Big Bay.jpg" alt="Big Bay" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Big Bay</h3>
+                                    <p>Croissant bun, smashed patty, lettuce, tomato, turkey bacon and Swiss cheese</p>
                                 </div>
-                                <p>Gourmet burger with premium ingredients, nacho cheese, and salsa on a brioche bun</p>
+                                <div class="item-price">$20</div>
                             </div>
                         </div>
-                        
-                        <div id="burgers" class="menu-section">
-                            <div class="menu-category-title">Beef Burgers</div>
-                            <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Warras</h3>
-                                    <span class="price">$13</span>
-                                </div>
-                                <p>Beef patty with cheese, onion, lettuce and tomato</p>
+
+                        <div class="menu-section" id="burgers">
+                            <div class="burger-section-header">
+                                <h4>Beef Burger Lineup</h4>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
+                                <div class="item-info">
+                                    <h3>Warga</h3>
+                                    <p>Beef patty topped with melted cheese, onion, lettuce and tomato</p>
+                                </div>
+                                <div class="item-price">$13</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
                                     <h3>Clutch BBQ</h3>
-                                    <span class="price">$13</span>
+                                    <p>Beef patty topped with melted cheese, beef rashers, caramelised onions, pickles and sweet barbecue sauce</p>
                                 </div>
-                                <p>Beef patty with cheese, bacon, onions, pickles and BBQ sauce</p>
+                                <div class="item-price">$13</div>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Big T</h3>
-                                    <span class="price">$17</span>
+                                <div class="item-info">
+                                    <h3>Cheezy Abdi</h3>
+                                    <p>Beef patty, melted cheese, cheese sauce and pickles</p>
                                 </div>
-                                <p>Beef patty with cheese, lettuce, tomato, onions, bacon and BBQ sauce</p>
+                                <div class="item-price">$15</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Big T</h3>
+                                    <p>Beef patty topped with melted cheese, lettuce, tomato, caramelised onions, beef rashers and sweet barbecue sauce</p>
+                                </div>
+                                <div class="item-price">$17</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Beef with the Malis</h3>
+                                    <p>Beef patty, turkey bacon, mozzarella, chips and ketchup</p>
+                                </div>
+                                <div class="item-price">$17</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Nagma</h3>
+                                    <p>Beef patty, melted cheese, cheesy nachos and salsa</p>
+                                </div>
+                                <div class="item-price">$18</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Swish</h3>
+                                    <p>Beef patty topped with cheese and pickles</p>
+                                </div>
+                                <div class="item-price">$9</div>
                             </div>
                             
-                            <div class="menu-category-title">Chicken Burgers</div>
+                            <div class="burger-section-header">
+                                <h4>Chicken Burger Lineup</h4>
+                            </div>
                             <div class="menu-item">
-                                <div class="item-header">
+                                <div class="item-info">
                                     <h3>Warras Chick</h3>
-                                    <span class="price">$13</span>
+                                    <p>Chicken patty topped with melted cheese, onion, lettuce and tomato</p>
                                 </div>
-                                <p>Chicken patty with cheese, onion, lettuce and tomato</p>
+                                <div class="item-price">$13</div>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
+                                <div class="item-info">
                                     <h3>Clutch Chick</h3>
-                                    <span class="price">$13</span>
+                                    <p>Chicken patty, melted cheese, caramelised onions, pickles, sweet barbecue sauce</p>
                                 </div>
-                                <p>Chicken patty with cheese, onions, pickles and BBQ sauce</p>
+                                <div class="item-price">$13</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Cheezy Faduma</h3>
+                                    <p>Chicken patty, melted cheese, cheese sauce and pickles</p>
+                                </div>
+                                <div class="item-price">$15</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Baby T</h3>
+                                    <p>Chicken patty topped with melted cheese, lettuce, tomato, caramelised onions and sweet barbecue sauce</p>
+                                </div>
+                                <div class="item-price">$17</div>
                             </div>
                         </div>
-                        
-                        <div id="sides" class="menu-section">
+
+                        <div class="menu-section" id="bowls">
                             <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Loaded Fries</h3>
-                                    <span class="price">$8</span>
+                                <img src="../assets/images/Pick'em Bowls.jpg" alt="Pick'em Bowls" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Pick'em Bowls</h3>
+                                    <p><strong>Meat Options:</strong> Grilled Chicken Mince, Grilled Chicken Tender, Fried Chicken Tender, Smashed Beef Patty</p>
+                                    <p><strong>Fillings:</strong> Regular Chips, Sweet Potato Chips, Waffle Fries, Salad Mix</p>
+                                    <p><strong>Sauces:</strong> Big BRRR Sauce, Mustard, Sweet Chilli, Garlic</p>
                                 </div>
-                                <p>Crispy fries with cheese, bacon and special sauce</p>
+                                <div class="item-price">$25</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-section" id="chips">
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>BYO Chips</h3>
+                                    <p>Bring your own chips, and let us decorate it with any meat, salad, and sauces of your choice!</p>
+                                </div>
+                                <div class="item-price">$10</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-section" id="sides">
+                            <div class="menu-item">
+                                <img src="../assets/images/Chips.jpg" alt="Chips" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Chips</h3>
+                                    <p>Small / Large / Family / Chili Cheese Fries</p>
+                                </div>
+                                <div class="item-price">$5 / $7 / $9 / $10</div>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
+                                <div class="item-info">
+                                    <h3>Regular Fries</h3>
+                                    <p>Golden crispy fries seasoned with our special blend</p>
+                                </div>
+                                <div class="item-price">$5</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Sweet Potato Fries</h3>
+                                    <p>Crispy sweet potato fries with a hint of cinnamon</p>
+                                </div>
+                                <div class="item-price">$7</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
                                     <h3>Onion Rings</h3>
-                                    <span class="price">$6</span>
+                                    <p>Beer-battered onion rings served with ranch dipping sauce</p>
                                 </div>
-                                <p>Golden crispy onion rings with dipping sauce</p>
+                                <div class="item-price">$6</div>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Chicken Wings</h3>
-                                    <span class="price">$12</span>
+                                <div class="item-info">
+                                    <h3>Loaded Nachos</h3>
+                                    <p>Tortilla chips topped with cheese, jalapeños, sour cream, and guacamole</p>
                                 </div>
-                                <p>Spicy buffalo wings with ranch dressing</p>
+                                <div class="item-price">$12</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <h3>Mozzarella Sticks</h3>
+                                    <p>Golden fried mozzarella sticks with marinara dipping sauce</p>
+                                </div>
+                                <div class="item-price">$8</div>
                             </div>
                         </div>
-                        
-                        <div id="drinks" class="menu-section">
+
+                        <div class="menu-section" id="desserts">
                             <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Chocolate Milkshake</h3>
-                                    <span class="price">$5</span>
+                                <img src="../assets/images/Naima Nono.jpg" alt="Naima Nono" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Naima Nono</h3>
+                                    <p>Butter toasted croissant filled with chocolate spread and creamy vanilla ice cream sprinkled with chunks of white chocolate</p>
                                 </div>
-                                <p>Rich chocolate milkshake with whipped cream</p>
+                                <div class="item-price">$13</div>
                             </div>
                             <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Soft Drinks</h3>
-                                    <span class="price">$3</span>
+                                <img src="../assets/images/Halimah Haah.jpg" alt="Halimah Haah" class="menu-item-image" loading="lazy">
+                                <div class="item-info">
+                                    <h3>Halimah Haah</h3>
+                                    <p>Butter toasted croissant filled with chocolate spread and creamy chocolate ice cream sprinkled with chunks of almond chocolate</p>
                                 </div>
-                                <p>Coke, Pepsi, Sprite, or Orange</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-header">
-                                    <h3>Fresh Juice</h3>
-                                    <span class="price">$4</span>
-                                </div>
-                                <p>Orange, Apple, or Mixed Berry</p>
+                                <div class="item-price">$13</div>
                             </div>
                         </div>
                     </div>

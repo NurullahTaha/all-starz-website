@@ -104,34 +104,39 @@ function stopSlideshow() {
     }
 }
 
-// Mobile menu tab switching
-function setupMobileMenuTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
+// Menu tab switching
+document.addEventListener('DOMContentLoaded', function() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const menuSections = document.querySelectorAll('.menu-section');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
             
-            // Haptic feedback
-            if (navigator.vibrate) {
-                navigator.vibrate(30);
-            }
+            // Remove active class from all buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
             
             // Hide all menu sections
-            const menuSections = document.querySelectorAll('.menu-section');
             menuSections.forEach(section => section.classList.remove('active'));
-            
-            // Show target section
-            const targetSection = document.getElementById(category);
-            if (targetSection) {
-                targetSection.classList.add('active');
+            // Show selected category section
+            const activeSection = document.getElementById(category);
+            if (activeSection) {
+                activeSection.classList.add('active');
             }
-            
-            // Update button active states
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
         });
     });
-}
+    
+    // Set default active category
+    const defaultTab = document.querySelector('.tab-btn.active');
+    if (defaultTab) {
+        const defaultSection = document.getElementById(defaultTab.dataset.category);
+        if (defaultSection) {
+            defaultSection.classList.add('active');
+        }
+    }
+});
 
 // Touch gesture handling
 function handleTouchStart(e) {
@@ -346,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Setup mobile menu tabs
-    setupMobileMenuTabs();
+    // setupMobileMenuTabs(); // This function is now handled by the new DOMContentLoaded block
     
     // Setup hero buttons
     const ctaButtons = document.querySelectorAll('.cta-button');
