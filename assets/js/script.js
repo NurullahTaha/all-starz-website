@@ -6,17 +6,26 @@ let mobileMenuOpen = false;
 
 // Simple page navigation function
 function showPage(pageId) {
-    console.log('showPage called with:', pageId);
+    console.log('=== showPage called with:', pageId, '===');
     
     // Hide all pages
     const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
+    console.log('Found pages:', pages.length);
+    pages.forEach((page, index) => {
+        console.log(`Page ${index}:`, page.id, 'classes:', page.className);
+        page.classList.remove('active');
+    });
     
     // Show target page
     const targetPage = document.getElementById(pageId);
+    console.log('Target page found:', targetPage ? targetPage.id : 'NOT FOUND');
     if (targetPage) {
         targetPage.classList.add('active');
-        console.log('Showing page:', pageId);
+        console.log('Added active class to:', pageId);
+        console.log('Page classes after:', targetPage.className);
+    } else {
+        console.error('Page with ID', pageId, 'not found!');
+        return;
     }
     
     // Update navigation active states
@@ -26,10 +35,12 @@ function showPage(pageId) {
     const activeLink = document.querySelector(`a[href="#${pageId}"]`);
     if (activeLink) {
         activeLink.classList.add('active');
+        console.log('Updated active nav link for:', pageId);
     }
     
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    console.log('=== showPage complete ===');
 }
 
 // Make showPage global
@@ -84,9 +95,38 @@ window.testJS = function() {
     console.log('Test function called successfully');
 };
 
+// Test page switching function
+window.testPages = function() {
+    console.log('=== TESTING ALL PAGES ===');
+    const pages = ['home', 'about', 'menu', 'location'];
+    pages.forEach(pageId => {
+        const page = document.getElementById(pageId);
+        console.log(`Page "${pageId}":`, page ? 'EXISTS' : 'MISSING');
+        if (page) {
+            console.log(`  - Classes: ${page.className}`);
+            console.log(`  - Display: ${getComputedStyle(page).display}`);
+        }
+    });
+};
+
+// Test navigation function
+window.testNav = function(pageId) {
+    console.log(`Testing navigation to: ${pageId}`);
+    showPage(pageId);
+};
+
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded');
+    
+    // Debug: Check all pages on load
+    console.log('=== PAGE DEBUG ON LOAD ===');
+    const allPages = document.querySelectorAll('.page');
+    console.log('Total pages found:', allPages.length);
+    allPages.forEach((page, index) => {
+        console.log(`Page ${index}: ID="${page.id}", classes="${page.className}", display="${getComputedStyle(page).display}"`);
+    });
+    console.log('=== END PAGE DEBUG ===');
     
     // Setup hamburger menu
     const hamburger = document.getElementById('hamburger');
