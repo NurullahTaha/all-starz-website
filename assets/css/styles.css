@@ -1518,16 +1518,23 @@ body {
     }
 }
 
-/* Desktop spacing reset - only apply to mobile */
+/* Add empty space on all pages except homepage - Desktop */
+.page:not(#home) {
+    padding-top: 120px;
+}
+
+.page:not(#home) .section:first-child {
+    padding-top: 60px;
+}
     
     .main {
         padding-top: 0;
     }
     
     .menu-categories {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 0 16px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        padding: 0 20px;
     }
     
     .category-btn {
@@ -1665,9 +1672,9 @@ body {
     }
     
     .menu-categories {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 0 12px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 16px;
     }
     
     .category-btn.bottom-row:nth-child(5),
@@ -1688,6 +1695,7 @@ body {
     }
     
     .menu-categories {
+        grid-template-columns: 1fr;
         gap: 8px;
         padding: 0 8px;
     }
@@ -1768,7 +1776,7 @@ img {
 
 /* Lazy loading support */
 img[loading="lazy"] {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s;
 }
 
