@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>All Starz Fast Foods - Mobile</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="../assets/images/All_Starz_Fast_Foods_Logo_Transparent_4K.png" alt="All Starz Fast Foods Logo" class="logo-image">
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#home" class="nav-link">🏠 Home</a>
+            <a href="#about" class="nav-link">ℹ️ About Us</a>
+            <a href="#menu" class="nav-link">🍔 Menu</a>
+            <a href="#location" class="nav-link">📍 Location</a>
+        </div>
+    </div>
+
+    <main class="main">
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-slider">
+                    <div id="slider">
+                        <img id="img1"
+                             src="https://static.wixstatic.com/media/fbe9c2_633948ad5335444aa475fc27d13b8cfb~mv2.jpg"
+                             alt="Slide 1"
+                             style="opacity:1;">
+                        <img id="img2"
+                             src="https://static.wixstatic.com/media/fbe9c2_5c1bd65926d9489e92c2ebe8a3515b06~mv2.jpg"
+                             alt="Slide 2"
+                             style="opacity:0;">
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <div class="hero-brand">
+                        <h1 class="brand-primary">ALL <span class="star">★</span> STARZ</h1>
+                        <div class="brand-divider"></div>
+                        <h2 class="brand-secondary">LOVE AND SAUCE</h2>
+                    </div>
+                    <button class="cta-button" onclick="showPage('menu')">Explore Menu</button>
+                </div>
+            </div>
+
+            <section class="section menu-preview">
+                <div class="container">
+                    <h2 class="section-title">TOP PICKS</h2>
+                    <p class="section-subtitle">Our customer favorites</p>
+                    
+                    <div class="mobile-menu-grid">
+                        <div class="mobile-menu-item">
+                            <img src="../assets/images/rasing faarah.jpg" alt="Raising Farah" class="mobile-menu-img">
+                            <div class="mobile-menu-info">
+                                <h3>Raising Farah</h3>
+                                <p>Our signature burger</p>
+                                <span class="price">$19</span>
+                            </div>
+                        </div>
+                        <div class="mobile-menu-item">
+                            <img src="../assets/images/big t.jpg" alt="Big T" class="mobile-menu-img">
+                            <div class="mobile-menu-info">
+                                <h3>Big T</h3>
+                                <p>Double patty goodness</p>
+                                <span class="price">$17</span>
+                            </div>
+                        </div>
+                        <div class="mobile-menu-item">
+                            <img src="../assets/images/Nagma.jpg" alt="Nagma" class="mobile-menu-img">
+                            <div class="mobile-menu-info">
+                                <h3>Nagma</h3>
+                                <p>Nacho cheese special</p>
+                                <span class="price">$18</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="showPage('menu')">View Full Menu</button>
+                </div>
+            </section>
+
+            <section class="section reviews">
+                <div class="container">
+                    <h2 class="section-title">Customer Reviews</h2>
+                    <div class="mobile-reviews">
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <div class="review-text">
+                                "Amazing burgers! The Raising Farah is incredible."
+                            </div>
+                            <div class="review-author">- Happy Customer</div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <div class="review-text">
+                                "Best fast food in town. Always fresh and tasty!"
+                            </div>
+                            <div class="review-author">- Regular Customer</div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <div class="review-text">
+                                "Great service and delicious food. Highly recommend!"
+                            </div>
+                            <div class="review-author">- Food Lover</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="about" class="page">
+            <div class="section">
+                <div class="container">
+                    <h2 class="section-title">Our Story</h2>
+                    <div class="mobile-about">
+                        <div class="about-image">
+                            <img src="../assets/images/chef1.jpg" alt="Our Chef" class="chef-mobile">
+                        </div>
+                        <div class="about-text">
+                            <h3>From Passion to Plate</h3>
+                            <p>Welcome to All Starz Fast Foods, where every burger tells a story of passion, quality, and dedication.</p>
+                            <p>Founded by food enthusiasts who believe in serving only the best, we've built our reputation on fresh ingredients and authentic flavors.</p>
+                            <p>Every bite is crafted with love, bringing you not just a meal, but an experience that keeps you coming back for more.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="page">
+            <div class="section">
+                <div class="container">
+                    <h2 class="section-title">Menu</h2>
+                    
+                    <div class="mobile-menu-tabs">
+                        <button class="tab-btn active" data-category="specials">Specials</button>
+                        <button class="tab-btn" data-category="burgers">Burgers</button>
+                        <button class="tab-btn" data-category="sides">Sides</button>
+                        <button class="tab-btn" data-category="drinks">Drinks</button>
+                    </div>
+
+                    <div class="mobile-menu-content">
+                        <div id="specials" class="menu-section active">
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Raising Farah</h3>
+                                    <span class="price">$19</span>
+                                </div>
+                                <p>Our signature specialty burger with premium beef patty, special sauce, fresh lettuce, tomato, and cheese</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Big T Special</h3>
+                                    <span class="price">$22</span>
+                                </div>
+                                <p>Double beef patty with bacon, cheese, caramelized onions, and our famous BBQ sauce</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Nagma Deluxe</h3>
+                                    <span class="price">$24</span>
+                                </div>
+                                <p>Gourmet burger with premium ingredients, nacho cheese, and salsa on a brioche bun</p>
+                            </div>
+                        </div>
+                        
+                        <div id="burgers" class="menu-section">
+                            <div class="menu-category-title">Beef Burgers</div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Warras</h3>
+                                    <span class="price">$13</span>
+                                </div>
+                                <p>Beef patty with cheese, onion, lettuce and tomato</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Clutch BBQ</h3>
+                                    <span class="price">$13</span>
+                                </div>
+                                <p>Beef patty with cheese, bacon, onions, pickles and BBQ sauce</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Big T</h3>
+                                    <span class="price">$17</span>
+                                </div>
+                                <p>Beef patty with cheese, lettuce, tomato, onions, bacon and BBQ sauce</p>
+                            </div>
+                            
+                            <div class="menu-category-title">Chicken Burgers</div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Warras Chick</h3>
+                                    <span class="price">$13</span>
+                                </div>
+                                <p>Chicken patty with cheese, onion, lettuce and tomato</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Clutch Chick</h3>
+                                    <span class="price">$13</span>
+                                </div>
+                                <p>Chicken patty with cheese, onions, pickles and BBQ sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div id="sides" class="menu-section">
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Loaded Fries</h3>
+                                    <span class="price">$8</span>
+                                </div>
+                                <p>Crispy fries with cheese, bacon and special sauce</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Onion Rings</h3>
+                                    <span class="price">$6</span>
+                                </div>
+                                <p>Golden crispy onion rings with dipping sauce</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Chicken Wings</h3>
+                                    <span class="price">$12</span>
+                                </div>
+                                <p>Spicy buffalo wings with ranch dressing</p>
+                            </div>
+                        </div>
+                        
+                        <div id="drinks" class="menu-section">
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Chocolate Milkshake</h3>
+                                    <span class="price">$5</span>
+                                </div>
+                                <p>Rich chocolate milkshake with whipped cream</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Soft Drinks</h3>
+                                    <span class="price">$3</span>
+                                </div>
+                                <p>Coke, Pepsi, Sprite, or Orange</p>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3>Fresh Juice</h3>
+                                    <span class="price">$4</span>
+                                </div>
+                                <p>Orange, Apple, or Mixed Berry</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="page">
+            <div class="section">
+                <div class="container">
+                    <h2 class="section-title">Visit Us</h2>
+                    
+                    <div class="location-card">
+                        <div class="location-info">
+                            <h3>📍 Address</h3>
+                            <p>358A Railway Parade<br>Beckenham WA 6107</p>
+                        </div>
+                        <div class="location-info">
+                            <h3>🕐 Hours</h3>
+                            <p>Mon-Fri: 2:00 PM - 10:00 PM<br>Sat-Sun: 2:00 PM - 11:00 PM</p>
+                        </div>
+                        <div class="location-info">
+                            <h3>📞 Contact</h3>
+                            <p>Phone: (08) 9456 7890<br>Email: info@allstarzfastfoods.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <div id="map"></div>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h3>Send us a Message</h3>
+                        <form class="contact-form">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your Email" required>
+                            <textarea placeholder="Your Message" rows="4" required></textarea>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/mobile.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+</html> 

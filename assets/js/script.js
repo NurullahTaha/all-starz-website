@@ -1,59 +1,48 @@
-// Fresh JavaScript - Fixed and Working
-console.log('Script loaded successfully');
+// All Starz Fast Foods - JavaScript
+console.log('All Starz Fast Foods script loaded');
 
 // Global variables
 let mobileMenuOpen = false;
 let hamburger = null;
 let mobileMenu = null;
 
-// Simple page navigation function
+// Page navigation function
 function showPage(pageId) {
-    console.log('=== showPage called with:', pageId, '===');
+    console.log('Showing page:', pageId);
     
     // Hide all pages
     const pages = document.querySelectorAll('.page');
-    console.log('Found pages:', pages.length);
-    pages.forEach((page, index) => {
-        console.log(`Page ${index}:`, page.id, 'classes:', page.className);
+    pages.forEach(page => {
         page.classList.remove('active');
     });
     
     // Show target page
     const targetPage = document.getElementById(pageId);
-    console.log('Target page found:', targetPage ? targetPage.id : 'NOT FOUND');
     if (targetPage) {
         targetPage.classList.add('active');
-        console.log('Added active class to:', pageId);
-        console.log('Page classes after:', targetPage.className);
+        
+        // Update navigation active states
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        const activeLink = document.querySelector(`a[href="#${pageId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-        console.error('Page with ID', pageId, 'not found!');
-        return;
+        console.error('Page not found:', pageId);
     }
-    
-    // Update navigation active states
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => link.classList.remove('active'));
-    
-    const activeLink = document.querySelector(`a[href="#${pageId}"]`);
-    if (activeLink) {
-        activeLink.classList.add('active');
-        console.log('Updated active nav link for:', pageId);
-    }
-    
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    console.log('=== showPage complete ===');
 }
-
-// Make showPage global
-window.showPage = showPage;
 
 // Mobile menu functions
 function toggleMobileMenu() {
-    console.log('toggleMobileMenu called');
+    console.log('Toggle mobile menu');
     
     if (!hamburger || !mobileMenu) {
-        console.error('Hamburger or mobile menu not found');
+        console.error('Mobile menu elements not found');
         return;
     }
     
@@ -68,8 +57,6 @@ function toggleMobileMenu() {
         mobileMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
-    
-    console.log('Mobile menu open:', mobileMenuOpen);
 }
 
 function closeMobileMenu() {
@@ -81,95 +68,33 @@ function closeMobileMenu() {
     }
 }
 
-// Make functions global
-window.toggleMobileMenu = toggleMobileMenu;
-window.closeMobileMenu = closeMobileMenu;
+// Image slider functionality
+let currentSlide = 0;
+const slides = ['#img1', '#img2'];
 
-// Test functions
-window.testJS = function() {
-    alert('JavaScript is working!');
-    console.log('Test function called successfully');
-};
-
-window.testPages = function() {
-    console.log('=== TESTING ALL PAGES ===');
-    const pages = ['home', 'about', 'menu', 'location'];
-    pages.forEach(pageId => {
-        const page = document.getElementById(pageId);
-        console.log(`Page "${pageId}":`, page ? 'EXISTS' : 'MISSING');
-        if (page) {
-            console.log(`  - Classes: ${page.className}`);
-            console.log(`  - Display: ${getComputedStyle(page).display}`);
+function switchSlide() {
+    slides.forEach((slide, index) => {
+        const img = document.querySelector(slide);
+        if (img) {
+            img.style.opacity = index === currentSlide ? '1' : '0';
         }
     });
-};
-
-window.testNav = function(pageId) {
-    console.log(`Testing navigation to: ${pageId}`);
-    showPage(pageId);
-};
-
-// Image loading optimization
-function optimizeImageLoading() {
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
     
-    // Create intersection observer for better lazy loading
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.addEventListener('load', () => {
-                        img.classList.add('loaded');
-                    });
-                    if (img.complete) {
-                        img.classList.add('loaded');
-                    }
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback for browsers without IntersectionObserver
-        lazyImages.forEach(img => {
-            img.addEventListener('load', () => {
-                img.classList.add('loaded');
-            });
-            if (img.complete) {
-                img.classList.add('loaded');
-            }
-        });
-    }
+    currentSlide = (currentSlide + 1) % slides.length;
 }
 
-// Initialize when DOM is ready
+// Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM Content Loaded');
+    console.log('DOM loaded, initializing...');
     
-    // Initialize image optimization
-    optimizeImageLoading();
-    
-    // Initialize global elements
+    // Initialize mobile menu elements
     hamburger = document.getElementById('hamburger');
     mobileMenu = document.getElementById('mobileMenu');
-    
-    // Debug: Check all pages on load
-    console.log('=== PAGE DEBUG ON LOAD ===');
-    const allPages = document.querySelectorAll('.page');
-    console.log('Total pages found:', allPages.length);
-    allPages.forEach((page, index) => {
-        console.log(`Page ${index}: ID="${page.id}", classes="${page.className}", display="${getComputedStyle(page).display}"`);
-    });
-    console.log('=== END PAGE DEBUG ===');
     
     // Setup hamburger menu
     if (hamburger) {
         hamburger.addEventListener('click', toggleMobileMenu);
-        console.log('Hamburger click listener added');
-    } else {
-        console.warn('Hamburger element not found');
+        console.log('Hamburger menu initialized');
     }
     
     // Setup mobile menu navigation
@@ -183,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeMobileMenu();
             });
         });
-        console.log('Mobile menu links setup complete');
+        console.log('Mobile menu navigation initialized');
     }
     
     // Setup desktop navigation
@@ -195,120 +120,47 @@ document.addEventListener('DOMContentLoaded', function() {
             showPage(pageId);
         });
     });
-    console.log('Desktop navigation setup complete');
+    console.log('Desktop navigation initialized');
     
-    // Setup menu category buttons
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            
-            // Hide all menu sections
-            const menuSections = document.querySelectorAll('.menu-section');
-            menuSections.forEach(section => section.classList.remove('active'));
-            
-            // Show target section
-            const targetSection = document.getElementById(category);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-            
-            // Update button active states
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-    console.log('Menu category buttons setup complete');
-    
-    // Setup explore button
-    const exploreBtn = document.querySelector('.explore-btn');
-    if (exploreBtn) {
-        exploreBtn.addEventListener('click', function() {
+    // Setup hero button
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function() {
             showPage('menu');
         });
-        console.log('Explore button setup complete');
+    }
+    
+    // Start image slider
+    if (document.querySelector('#slider')) {
+        setInterval(switchSlide, 4000);
+        console.log('Image slider initialized');
     }
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (mobileMenuOpen && hamburger && mobileMenu) {
-            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-                closeMobileMenu();
-            }
+        if (mobileMenuOpen && !hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            closeMobileMenu();
         }
     });
     
-    // Close mobile menu on window resize
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenuOpen) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Handle window resize
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768 && mobileMenuOpen) {
             closeMobileMenu();
         }
     });
     
-    console.log('All event listeners setup complete');
+    console.log('All Starz Fast Foods initialization complete');
 });
 
-// Contact form handling
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.querySelector('.form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simple success simulation
-            setTimeout(() => {
-                alert('Thank you for your review! We appreciate your feedback.');
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1000);
-        });
-    }
-});
-
-// Google Maps function
-function initMap() {
-    const mapElement = document.getElementById('map');
-    if (!mapElement) {
-        console.warn('Map element not found');
-        return;
-    }
-    
-    const geocoder = new google.maps.Geocoder();
-    const address = '358A Railway Parade, Beckenham WA 6107';
-    
-    geocoder.geocode({'address': address}, function(results, status) {
-        if (status === 'OK') {
-            const map = new google.maps.Map(mapElement, {
-                zoom: 15,
-                center: results[0].geometry.location
-            });
-            
-            const marker = new google.maps.Marker({
-                position: results[0].geometry.location,
-                map: map,
-                title: 'All Starz Fast Foods'
-            });
-            
-            const infoWindow = new google.maps.InfoWindow({
-                content: '<div><strong>All Starz Fast Foods</strong><br>358A Railway Parade<br>Beckenham WA 6107</div>'
-            });
-            
-            infoWindow.open(map, marker);
-            console.log('Google Maps initialized successfully');
-        } else {
-            console.error('Geocoding failed:', status);
-        }
-    });
-}
-
-// Make initMap global for Google Maps callback
-window.initMap = initMap;
-
-console.log('Script setup complete');
+// Make functions globally available
+window.showPage = showPage;
+window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
