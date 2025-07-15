@@ -1,8 +1,10 @@
-// Fresh JavaScript - Simple and Working
+// Fresh JavaScript - Fixed and Working
 console.log('Script loaded successfully');
 
 // Global variables
 let mobileMenuOpen = false;
+let hamburger = null;
+let mobileMenu = null;
 
 // Simple page navigation function
 function showPage(pageId) {
@@ -50,9 +52,6 @@ window.showPage = showPage;
 function toggleMobileMenu() {
     console.log('toggleMobileMenu called');
     
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
     if (!hamburger || !mobileMenu) {
         console.error('Hamburger or mobile menu not found');
         return;
@@ -74,9 +73,6 @@ function toggleMobileMenu() {
 }
 
 function closeMobileMenu() {
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
     if (hamburger && mobileMenu) {
         hamburger.classList.remove('active');
         mobileMenu.classList.remove('active');
@@ -89,13 +85,12 @@ function closeMobileMenu() {
 window.toggleMobileMenu = toggleMobileMenu;
 window.closeMobileMenu = closeMobileMenu;
 
-// Test function
+// Test functions
 window.testJS = function() {
     alert('JavaScript is working!');
     console.log('Test function called successfully');
 };
 
-// Test page switching function
 window.testPages = function() {
     console.log('=== TESTING ALL PAGES ===');
     const pages = ['home', 'about', 'menu', 'location'];
@@ -109,15 +104,18 @@ window.testPages = function() {
     });
 };
 
-// Test navigation function
 window.testNav = function(pageId) {
     console.log(`Testing navigation to: ${pageId}`);
     showPage(pageId);
 };
 
-// Wait for DOM to be ready
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded');
+    
+    // Initialize global elements
+    hamburger = document.getElementById('hamburger');
+    mobileMenu = document.getElementById('mobileMenu');
     
     // Debug: Check all pages on load
     console.log('=== PAGE DEBUG ON LOAD ===');
@@ -129,14 +127,14 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('=== END PAGE DEBUG ===');
     
     // Setup hamburger menu
-    const hamburger = document.getElementById('hamburger');
     if (hamburger) {
         hamburger.addEventListener('click', toggleMobileMenu);
         console.log('Hamburger click listener added');
+    } else {
+        console.warn('Hamburger element not found');
     }
     
     // Setup mobile menu navigation
-    const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu) {
         const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
         mobileLinks.forEach(link => {
@@ -195,13 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (mobileMenuOpen) {
-            const hamburger = document.getElementById('hamburger');
-            const mobileMenu = document.getElementById('mobileMenu');
-            
-            if (hamburger && mobileMenu && 
-                !hamburger.contains(e.target) && 
-                !mobileMenu.contains(e.target)) {
+        if (mobileMenuOpen && hamburger && mobileMenu) {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
                 closeMobileMenu();
             }
         }
@@ -217,19 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('All event listeners setup complete');
 });
 
-// EmailJS functionality (placeholder - replace with actual credentials)
-const EMAILJS_CONFIG = {
-    publicKey: 'YOUR_PUBLIC_KEY',
-    serviceId: 'YOUR_SERVICE_ID', 
-    templateId: 'YOUR_TEMPLATE_ID'
-};
-
-// Initialize EmailJS if available
-if (typeof emailjs !== 'undefined') {
-    emailjs.init(EMAILJS_CONFIG.publicKey);
-}
-
-// Contact form handler
+// Contact form handling
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.form');
     if (contactForm) {
@@ -242,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simple success simulation (replace with actual EmailJS when configured)
+            // Simple success simulation
             setTimeout(() => {
                 alert('Thank you for your review! We appreciate your feedback.');
                 contactForm.reset();
@@ -253,10 +234,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Google Maps callback function
+// Google Maps function
 function initMap() {
     const mapElement = document.getElementById('map');
-    if (!mapElement) return;
+    if (!mapElement) {
+        console.warn('Map element not found');
+        return;
+    }
     
     const geocoder = new google.maps.Geocoder();
     const address = '358A Railway Parade, Beckenham WA 6107';
@@ -279,6 +263,9 @@ function initMap() {
             });
             
             infoWindow.open(map, marker);
+            console.log('Google Maps initialized successfully');
+        } else {
+            console.error('Geocoding failed:', status);
         }
     });
 }
