@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuSections = document.querySelectorAll('.menu-section');
     const exploreBtn = document.querySelector('.explore-btn');
     const contactForm = document.querySelector('.form');
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
 
     window.showPage = function(pageId) {
         pages.forEach(page => {
@@ -372,3 +374,66 @@ window.initMap = function() {
         }
     });
 }
+
+// Mobile Menu Functions
+function toggleMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+}
+
+function closeMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (mobileMenu && mobileMenu.classList.contains('active')) {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            closeMobileMenu();
+        }
+    }
+});
+
+// Close mobile menu on window resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        closeMobileMenu();
+    }
+});
+
+// Performance optimization: Debounced scroll handler
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(function() {
+        // Add any scroll-based functionality here if needed
+    }, 16); // ~60fps
+});
+
+// Make functions global for onclick handlers
+window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
