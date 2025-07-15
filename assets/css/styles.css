@@ -1508,6 +1508,18 @@ body {
         padding: 60px 0;
     }
     
+    /* Fix header overlap on mobile pages */
+    .page:not(#home) {
+        padding-top: 140px !important;
+    }
+    
+    .page:not(#home) .section:first-child {
+        padding-top: 60px !important;
+    }
+}
+
+/* Desktop spacing reset - only apply to mobile */
+    
     .main {
         padding-top: 0;
     }
@@ -1746,6 +1758,22 @@ img {
     image-rendering: optimizeSpeed;
     transform: translateZ(0);
     backface-visibility: hidden;
+    will-change: transform;
+    max-width: 100%;
+    height: auto;
+    /* Additional mobile optimization */
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 200px;
+}
+
+/* Lazy loading support */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
 }
 
 /* Enhanced Mobile Performance & Layout Fixes */

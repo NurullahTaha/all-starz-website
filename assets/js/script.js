@@ -109,9 +109,47 @@ window.testNav = function(pageId) {
     showPage(pageId);
 };
 
+// Image loading optimization
+function optimizeImageLoading() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    // Create intersection observer for better lazy loading
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.addEventListener('load', () => {
+                        img.classList.add('loaded');
+                    });
+                    if (img.complete) {
+                        img.classList.add('loaded');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach(img => {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+            if (img.complete) {
+                img.classList.add('loaded');
+            }
+        });
+    }
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded');
+    
+    // Initialize image optimization
+    optimizeImageLoading();
     
     // Initialize global elements
     hamburger = document.getElementById('hamburger');
