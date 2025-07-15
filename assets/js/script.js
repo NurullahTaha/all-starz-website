@@ -1,3 +1,44 @@
+// Mobile Menu Functions - Define globally first
+function toggleMobileMenu() {
+    console.log('Toggle mobile menu called'); // Debug log
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    console.log('Hamburger:', hamburger); // Debug log
+    console.log('Mobile menu:', mobileMenu); // Debug log
+    
+    if (hamburger && mobileMenu) {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        
+        console.log('Menu toggled, active:', mobileMenu.classList.contains('active')); // Debug log
+        
+        // Prevent body scroll when menu is open
+        if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    } else {
+        console.error('Hamburger or mobile menu not found!');
+    }
+}
+
+function closeMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Make functions available globally
+window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
+
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const pages = document.querySelectorAll('.page');
@@ -5,8 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuSections = document.querySelectorAll('.menu-section');
     const exploreBtn = document.querySelector('.explore-btn');
     const contactForm = document.querySelector('.form');
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
 
     window.showPage = function(pageId) {
         pages.forEach(page => {
@@ -63,6 +102,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (exploreBtn) {
         exploreBtn.addEventListener('click', function() {
             window.showPage('menu');
+        });
+    }
+
+    // Add event listener for hamburger menu as backup
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileMenu();
         });
     }
 
@@ -375,36 +424,7 @@ window.initMap = function() {
     });
 }
 
-// Mobile Menu Functions
-function toggleMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (hamburger && mobileMenu) {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        if (mobileMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    }
-}
-
-function closeMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (hamburger && mobileMenu) {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
-
-// Close mobile menu when clicking outside
+// Event listeners for mobile menu
 document.addEventListener('click', function(e) {
     const mobileMenu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger');
@@ -433,7 +453,3 @@ window.addEventListener('scroll', function() {
         // Add any scroll-based functionality here if needed
     }, 16); // ~60fps
 });
-
-// Make functions global for onclick handlers
-window.toggleMobileMenu = toggleMobileMenu;
-window.closeMobileMenu = closeMobileMenu;
