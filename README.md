@@ -31,16 +31,28 @@ A complete restaurant website for All Starz Fast Foods featuring modern design, 
 ## File Structure
 
 ```
-/Website/
-├── index.html                                    # Main HTML file
-├── styles.css                                   # Complete stylesheet
-├── script.js                                    # JavaScript functionality
-├── All_Starz_Fast_Foods_Logo_Transparent_4K.png # Main logo
-├── favicon-16x16.png                           # Small favicon
-├── favicon-32x32.png                           # Standard favicon
-├── apple-touch-icon.png                        # iOS app icon
-├── [menu item images]                          # Food photos
-└── README.md                                   # This documentation
+/
+├── assets/
+│   ├── css/
+│   │   └── styles.css                          # Complete stylesheet
+│   ├── js/
+│   │   └── script.js                           # JavaScript functionality
+│   └── images/
+│       ├── All_Starz_Fast_Foods_Logo_4K.png    # Main logo
+│       ├── favicon-16x16.png                   # Small favicon
+│       ├── favicon-32x32.png                   # Standard favicon
+│       ├── apple-touch-icon.png                # iOS app icon
+│       └── [menu & food images]                # All restaurant images
+├── docs/                                       # Documentation
+├── .github/
+│   ├── ISSUE_TEMPLATE/                         # Issue templates
+│   └── workflows/
+│       └── static.yml                          # GitHub Pages deployment
+├── index.html                                  # Main HTML file
+├── README.md                                   # This documentation
+├── CONTRIBUTING.md                             # Contribution guidelines
+├── LICENSE                                     # MIT License
+└── .gitignore                                  # Git ignore patterns
 ```
 
 ## Setup Instructions
@@ -76,3 +88,38 @@ Once deployed to GitHub Pages, the website will be available at:
 - Fully responsive design with mobile-first approach
 - Optimized for performance and accessibility
 - Clean, maintainable code structure
+
+## Contributing
+
+We welcome contributions! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+
+## Issues and Support
+
+- **Bug Reports**: Use the [bug report template](.github/ISSUE_TEMPLATE/bug_report.md)
+- **Feature Requests**: Use the [feature request template](.github/ISSUE_TEMPLATE/feature_request.md)
+- **Questions**: Open a discussion in the Issues tab
+
+## Deployment
+
+This website is automatically deployed to GitHub Pages using GitHub Actions. The deployment workflow is configured in [`.github/workflows/static.yml`](.github/workflows/static.yml).
+
+### Manual Deployment
+
+1. Push changes to the `main` branch
+2. GitHub Actions will automatically build and deploy
+3. Website will be available at `https://nurullahtaha.github.io/all-starz-website`
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- **EmailJS** for contact form functionality
+- **Google Maps API** for location services
+- **Font Awesome** icons for menu categories
+- **Modern web technologies** for responsive design
+
+---
+
+**Built with ❤️ for All Starz Fast Foods** 🍔⭐
